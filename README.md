@@ -2,7 +2,7 @@
 
 #### Overview
 
-    -I just learned how to code in Java 4 days ago. So LET'S MAKE A GAME!
+I just learned how to code in Java 4 days ago. So LET'S MAKE A GAME!
 
 ---
 
