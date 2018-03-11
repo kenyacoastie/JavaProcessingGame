@@ -23,12 +23,12 @@ public class Game {
     public int numShots = 0;
     private int ships = 3;
     private int pause = 0;
-    private int stage = 0;
+    public int stage = 1;
 
-    private int[] scoreHistory = new int[0];
+//    private int[] scoreHistory = new int[0];
     int[] recentScores = {0, 0, 0};
 
-    ArrayList<Integer> history = new ArrayList<>();
+    ArrayList<Integer> scoreHistory = new ArrayList<>();
     ArrayList<Game.shot> shots = new ArrayList<Game.shot>();
     ArrayList<Game.asteroid> asteroids = new ArrayList<Game.asteroid>();
 
@@ -71,8 +71,10 @@ public class Game {
                         a.coll(13*p.cos(angle-p.PI)+250, 13*p.sin(angle-p.PI)+250, 9, -1) ||
                         a.coll(10*p.cos(angle)+250, 10*p.sin(angle)+250, 4, -1) ||
                         a.coll(18*p.cos(angle)+250, 18*p.sin(angle)+250, 1, -1)) {
-                    history.add(score);
-                    System.out.println("on death score: " +history);
+
+
+                    pushScoreHistory(score);
+//                    scoreHistory.add(score);
 
                     score = 0;
                     ships--;
@@ -107,8 +109,6 @@ public class Game {
             }
             if (ships == 0) {
                 // GAME OVER , Clear screen, black
-//                System.out.println("game over: "+history);
-//                System.out.println("history: "+history);
                 p.textAlign(p.CENTER);
                 p.text("Game Over", p.width/2, p.height/2);
                 p.text("Press any key to restart", p.width/2, 2*p.height/3);
@@ -143,6 +143,14 @@ public class Game {
 
     }
 
+    // Add the round score, remove index 0 if list at 10 scores.
+    public void pushScoreHistory(int roundScore){
+        if(scoreHistory.size() >= 10) {
+            scoreHistory.remove(0);
+        }
+        scoreHistory.add(roundScore);
+    }
+
     // When left mouse button is pressed, create a new shot
     public void gameMousePressed() {
 //        Shoot on click
@@ -154,8 +162,10 @@ public class Game {
                 numShots++;
             }
             if (p.mouseButton == p.RIGHT) {
-                asteroids.add(new asteroid(p.random(0, TWO_PI), p.random(1, 2), p.random(1, 4), p.random(-1, 1),
-                        p.random(-80, 80), p.random(-80, 80), ast_id++));
+//                asteroids.add(new asteroid(p.random(0, TWO_PI), p.random(1, 2), p.random(1, 4), p.random(-1, 1),
+//                        p.random(-80, 80), p.random(-80, 80), ast_id++));
+                System.out.println("right clicking during game");
+//stage = 0;
             }
         }
     }
@@ -311,5 +321,11 @@ public class Game {
             }
         }
     }
+
+    //Get & Set methods
+    public ArrayList<Integer> getScoreHistory(){
+        return scoreHistory;
+    }
+
 
 }

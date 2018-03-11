@@ -13,8 +13,8 @@ I just learned how to code in Java 4 days ago. So LET'S MAKE A GAME!
 
 #### Features
 
-**(in progress)** Main Menu with options to enter "play" or "history"
-
+Main Menu with options to enter "play" or "history"
+Pause game via right click
 **(in progress)** History stored in Arrays or ArrayLists
 
 #### Installation
