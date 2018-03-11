@@ -24,15 +24,19 @@ public class MainApp extends PApplet{
     private final int MAIN_MENU = 0;
     private final int HISTORY_MENU = 1;
     private final int PLAY_GAME = 2;
-    private final int PAUSE = 3;
+
+    //define images for preloading to avoid reloading on each class
+    PImage gameImg;
+    PImage menuImg;
 
     public void setup() {
         frameRate(60);
         stroke(255);
         fill(255);
-        PImage img;
-        img = loadImage("images/stars.png");
-        background(img);
+    //Preload bg images to avoid reloading on each class
+        gameImg = loadImage("images/stars.png");
+        menuImg = loadImage("images/purpleSpace.JPG");
+        background(menuImg);
 
     //Subclass instances
         Menu = new Menu(this);
@@ -48,25 +52,30 @@ public class MainApp extends PApplet{
                 Menu.draw();
                 break;
             case HISTORY_MENU:
+                background(menuImg);
+                HistoryStage.highScores = Game.highScores;
                 HistoryStage.scoreHistory = Game.scoreHistory;
                 HistoryStage.draw();
                 break;
             case PLAY_GAME:
+                Menu.gameStarted = true;
+                background(gameImg);
                 Game.draw();
                 break;
-//            case PAUSE:
-//                //Pause Stuff
-//                break;
         }
     }
 
+    //Global mouse event, check booleans from Menu for stage direction
     public void mousePressed() {
         if (mouseButton == LEFT) {
             Game.gameMousePressed();
-            if (Menu.rect2Over== true){
-                System.out.println("history button");
+            if (Menu.rect2Over==true){
                 stage = HISTORY_MENU;
-            } else if (Menu.rectOver== true){
+            } else if (Menu.rectOver==true){
+                stage = PLAY_GAME;
+            } else if (Menu.rect3Over==true){
+                Game.resetGame();
+                Menu.rect3Over=false;
                 stage = PLAY_GAME;
             }
         } else if (mouseButton == RIGHT) {
@@ -84,5 +93,3 @@ public class MainApp extends PApplet{
     }
 
 }
-
-

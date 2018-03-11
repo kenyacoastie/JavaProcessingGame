@@ -3,6 +3,9 @@ import processing.core.PImage;
 import processing.core.PShape;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 
 import static processing.core.PConstants.TWO_PI;
 
@@ -29,6 +32,8 @@ public class Game {
     int[] recentScores = {0, 0, 0};
 
     ArrayList<Integer> scoreHistory = new ArrayList<>();
+    ArrayList<Integer> highScores = new ArrayList<>();
+
     ArrayList<Game.shot> shots = new ArrayList<Game.shot>();
     ArrayList<Game.asteroid> asteroids = new ArrayList<Game.asteroid>();
 
@@ -71,11 +76,9 @@ public class Game {
                         a.coll(13*p.cos(angle-p.PI)+250, 13*p.sin(angle-p.PI)+250, 9, -1) ||
                         a.coll(10*p.cos(angle)+250, 10*p.sin(angle)+250, 4, -1) ||
                         a.coll(18*p.cos(angle)+250, 18*p.sin(angle)+250, 1, -1)) {
-
-
+                    //set up for the next round
                     pushScoreHistory(score);
-//                    scoreHistory.add(score);
-
+                    pushHighScores(score);
                     score = 0;
                     ships--;
                     pause=3*60;
@@ -113,10 +116,10 @@ public class Game {
                 p.text("Game Over", p.width/2, p.height/2);
                 p.text("Press any key to restart", p.width/2, 2*p.height/3);
 //        text("Hit rate: " + int(100*score/float(numShots)) + "%", 15, 45);
-                if (p.keyPressed == true) {
+                if (p.keyPressed == true || p.mousePressed == true) {
                     score = 0;
                     numShots = 0;
-                    ships = 1;
+                    ships = 3;
                     asteroid_rate = 3 * 60;
                     asteroid_count = 0;
                     ast_id = 1;
@@ -143,12 +146,31 @@ public class Game {
 
     }
 
+    public void resetGame(){
+        score = 0;
+        numShots = 0;
+        ships = 3;
+        asteroid_rate = 3 * 60;
+        asteroid_count = 0;
+        ast_id = 1;
+        asteroids = new ArrayList<Game.asteroid>();
+    }
+
     // Add the round score, remove index 0 if list at 10 scores.
     public void pushScoreHistory(int roundScore){
         if(scoreHistory.size() >= 10) {
             scoreHistory.remove(0);
         }
         scoreHistory.add(roundScore);
+    }
+
+    // Check each round's score if in top 10. push and remove anything past 10
+    public void pushHighScores(int roundScore){
+        highScores.add(roundScore);
+        Collections.sort(highScores, Collections.reverseOrder());
+        if(highScores.size() > 10) {
+            highScores.remove(10);
+        }
     }
 
     // When left mouse button is pressed, create a new shot
@@ -165,7 +187,6 @@ public class Game {
 //                asteroids.add(new asteroid(p.random(0, TWO_PI), p.random(1, 2), p.random(1, 4), p.random(-1, 1),
 //                        p.random(-80, 80), p.random(-80, 80), ast_id++));
                 System.out.println("right clicking during game");
-//stage = 0;
             }
         }
     }
