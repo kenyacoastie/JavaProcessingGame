@@ -3,7 +3,7 @@ import processing.data.Table;
 
 import java.util.ArrayList;
 
-public class HistoryStage extends MainApp{
+public class HistoryStage{
 
     PApplet p;
     public HistoryStage(PApplet p){

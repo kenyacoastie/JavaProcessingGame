@@ -62,14 +62,14 @@ public class MainApp extends PApplet{
                 HistoryStage.highScores = Game.highScores;
                 HistoryStage.scoreHistory = Game.scoreHistory;
                 HistoryStage.draw();
-
-                updateTable();
-
                 break;
             case PLAY_GAME:
                 Menu.gameStarted = true;
                 background(gameImg);
                 Game.draw();
+//                if (Game.updateTrigger==true){
+//                    updateTable();
+//                }
                 break;
         }
     }
@@ -89,6 +89,7 @@ public class MainApp extends PApplet{
             }
         } else if (mouseButton == RIGHT) {
             stage = MAIN_MENU;
+            updateTable();
         }
     }
 
@@ -124,7 +125,6 @@ public class MainApp extends PApplet{
             int id = row.getInt("ID");
             int rowRecentScore = Game.scoreHistory.get(id);
             int rowHighScore = Game.highScores.get(id);
-
             table.setInt(id, "ScoreHistory", rowRecentScore);
             table.setInt(id, "HighScores", rowHighScore);
         }

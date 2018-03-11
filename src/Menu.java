@@ -1,5 +1,7 @@
 import processing.core.PApplet;
 
+import static processing.core.PConstants.P3D;
+
 public class Menu{
 
     PApplet p;
@@ -45,6 +47,18 @@ public class Menu{
         p.stroke(255);
         p.rect(rectX, rectY, rectSize, rectSize);
 
+        p.textSize(23);
+        p.fill(0, 102, 153, 204);
+        if(gameStarted){
+            p.textSize(22);
+            p.text("Resume", rectX+3, rectY+40, -30);  // Specify a z-axis value
+        } else {
+            p.text("Play", rectX+22, rectY+40, -30);  // Specify a z-axis value
+        }
+        p.textSize(18);
+        p.text("Game", rectX+20, rectY+60);  // Default depth, no z-value specified
+
+
 //        rectangle 2. Scores Button
         if (rect2Over) {
             p.fill(rectHighlight);
@@ -53,6 +67,11 @@ public class Menu{
         }
         p.stroke(255);
         p.rect(rect2X, rectY, rectSize, rectSize);
+        p.textSize(23);
+        p.fill(0, 102, 153, 204);
+        p.text("Score", rect2X+17, rectY+40, -30);  // Specify a z-axis value
+        p.textSize(18);
+        p.text("History", rect2X+15, rectY+60);  // Default depth, no z-value specified
 
 //        rectangle 3. Reset Button. Only visible if games have been started.
         if(gameStarted){
@@ -64,6 +83,11 @@ public class Menu{
 //        if (stage == 2)
             p.stroke(255);
             p.rect(rect3X, rect3Y, rectSize, rectSize);
+            p.textSize(23);
+            p.fill(0, 102, 153, 204);
+            p.text("Reset", rect3X+18, rect3Y+40, -30);  // Specify a z-axis value
+            p.textSize(18);
+            p.text("Game", rect3X+22, rect3Y+60);  // Default depth, no z-value specified
         }
 
     }

@@ -3,13 +3,11 @@ import processing.core.PImage;
 import processing.core.PShape;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
 
 import static processing.core.PConstants.TWO_PI;
 
-public class Game {
+public class Game{
     PApplet p;
 
     public Game(PApplet p){
@@ -26,9 +24,9 @@ public class Game {
     public int numShots = 0;
     private int ships = 3;
     private int pause = 0;
-    public int stage = 1;
+    boolean updateTrigger = false;
 
-//    private int[] scoreHistory = new int[0];
+    //    private int[] scoreHistory = new int[0];
     int[] recentScores = {0, 0, 0};
 
     ArrayList<Integer> scoreHistory = new ArrayList<>();
@@ -143,7 +141,6 @@ public class Game {
         p.textAlign(p.LEFT);
         p.text("Score   : " + score, 15, 15);
         p.text("Ships   : " + ships, 15, 30);
-
     }
 
     public void resetGame(){
@@ -153,7 +150,7 @@ public class Game {
         asteroid_rate = 3 * 60;
         asteroid_count = 0;
         ast_id = 1;
-        asteroids = new ArrayList<Game.asteroid>();
+        asteroids = new ArrayList<asteroid>();
     }
 
     // Add the round score, remove index 0 if list at 10 scores.
@@ -162,6 +159,8 @@ public class Game {
             scoreHistory.remove(0);
         }
         scoreHistory.add(roundScore);
+        updateTrigger = true;
+        updateTrigger = false;
     }
 
     // Check each round's score if in top 10. push and remove anything past 10
@@ -171,12 +170,8 @@ public class Game {
         if(highScores.size() > 10) {
             highScores.remove(10);
         }
-    }
-
-    public void saveScores(ArrayList<Integer> scoreHistory){
-//        create a function that overwrites column with scoreHistory[] ints.
-//        saveTable(table, "data/scores.csv");
-
+        updateTrigger = true;
+        updateTrigger = false;
     }
 
     // When left mouse button is pressed, create a new shot

@@ -12,9 +12,10 @@ I just learned how to code in Java 4 days ago. SO LET'S MAKE A GAME!
 
 #### Features
 
-Main Menu with options to enter "Play" or "Score History"
-Score History displays an array of 10 most recent scores and a Top Ten scores list as well
-Game can be paused, and you can even view score history, during game play via right click, then resume game
+Main Menu: enter "Play" or "Score History"
+Score History: Score History displays an array of 10 most recent scores and a Top Ten scores list as well
+Save Game: High Scores and Top Ten Scores persists across sessions via csv file save
+Pause menu: pause or view score history mid game, then resume game
 
 #### Installation/Demo
     - Installation instructions
