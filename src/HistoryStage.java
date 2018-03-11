@@ -1,4 +1,5 @@
 import processing.core.PApplet;
+import processing.data.Table;
 
 import java.util.ArrayList;
 
@@ -8,6 +9,8 @@ public class HistoryStage extends MainApp{
     public HistoryStage(PApplet p){
         this.p = p;
     }
+
+//    Table table;
 
 //  MainApp syncs scoreHistory from Game.java
     public ArrayList<Integer> scoreHistory = new ArrayList<>();

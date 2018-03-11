@@ -21,7 +21,7 @@ public class Game {
     private int asteroid_count = 0;
     private float ast_size = 10;
     private int ast_id = 1;
-    private int score = 0;
+    public int score = 0;
     float hitRate = 0;
     public int numShots = 0;
     private int ships = 3;
@@ -171,6 +171,12 @@ public class Game {
         if(highScores.size() > 10) {
             highScores.remove(10);
         }
+    }
+
+    public void saveScores(ArrayList<Integer> scoreHistory){
+//        create a function that overwrites column with scoreHistory[] ints.
+//        saveTable(table, "data/scores.csv");
+
     }
 
     // When left mouse button is pressed, create a new shot
