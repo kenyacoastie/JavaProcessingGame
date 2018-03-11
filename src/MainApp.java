@@ -2,7 +2,6 @@ import processing.core.PApplet;
 import processing.core.PImage;
 import processing.core.PShape;
 
-
 import java.util.ArrayList;
 
 public class MainApp extends PApplet{
@@ -15,9 +14,7 @@ public class MainApp extends PApplet{
         size(500, 500);
     }
 
-//    Thing ball;
-//    Thing star;
-
+    Button Button;
 
 //  GLOBAL SETTINGS
     private int asteroid_rate = 2 * 60;
@@ -29,9 +26,20 @@ public class MainApp extends PApplet{
     public int numShots = 0;
     private int ships = 3;
     private int pause = 0;
+    private int stage = 0;
+
+    private final int MAIN_MENU = 0;
+    private final int HISTORY_MENU = 1;
+    private final int GAME = 2;
+    private final int PAUSE = 3;
 
 
-    //  Create arrays of shot & asteroid objects
+    private int[] scoreHistory = new int[0];
+    int[] recentScores = {0, 0, 0};
+
+
+    //  Create arrays of scores, shots, & asteroid objects
+    ArrayList<Integer> history = new ArrayList<>();
     ArrayList<shot> shots = new ArrayList<shot>();
     ArrayList<asteroid> asteroids = new ArrayList<asteroid>();
 
@@ -40,22 +48,41 @@ public class MainApp extends PApplet{
         stroke(255);
         fill(255);
 
+        PImage img;
+        img = loadImage("images/stars.png");
+        background(img);
 
-        // this loads mysong.wav from the data folder
-//        song = minim.loadFile("audio/bgMusic.mp3");
-
-        // Load a soundfile from the /data folder of the sketch and play it back
-
-//        ball = new Thing(this);
-//        star = new Thing(this);
-//        SimpleAudioPlayer = new T
-
+        Button = new Button(this);
     }
 
     public void draw()
     {
+        switch(stage) {
+            case MAIN_MENU:
+                //Main Menu Stuff
+                Button.draw();
+                break;
+            case HISTORY_MENU:
+                System.out.println("history page");
+                //Game Menu Stuff
+                break;
+            case GAME:
+                game();
+                //Game Stuff
+                break;
+//            case PAUSE:
+//                //Pause Stuff
+//                break;
+        }
 
+
+    }
+
+    public void game(){
         // Track the mouse
+
+        background(0);
+
         float angle = atan2(mouseY - 250, mouseX - 250);
 
         int i;
@@ -69,7 +96,7 @@ public class MainApp extends PApplet{
                 asteroid_count = asteroid_rate--;
             }
 
-            // Clear screen, black
+            // Clear screen
             background(0);
             PImage img;
             img = loadImage("images/stars.png");
@@ -83,15 +110,19 @@ public class MainApp extends PApplet{
                     asteroids.remove(i);
                 }
                 // Detect collisions with asteroids by approximating ship with 4 circles
-                 fill(160, 33, 100);
-                 ellipse(250, 250, 11, 11);
-                 ellipse(13*cos(angle-PI)+250, 13*sin(angle-PI)+250, 17, 17);
-                 ellipse(10*cos(angle)+250, 10*sin(angle)+250, 7, 7);
-                 ellipse(18*cos(angle)+250, 18*sin(angle)+250, 2, 2);
+                fill(160, 33, 100);
+                ellipse(250, 250, 11, 11);
+                ellipse(13*cos(angle-PI)+250, 13*sin(angle-PI)+250, 17, 17);
+                ellipse(10*cos(angle)+250, 10*sin(angle)+250, 7, 7);
+                ellipse(18*cos(angle)+250, 18*sin(angle)+250, 2, 2);
                 if (a.coll(250, 250, 6, -1) ||
                         a.coll(13*cos(angle-PI)+250, 13*sin(angle-PI)+250, 9, -1) ||
                         a.coll(10*cos(angle)+250, 10*sin(angle)+250, 4, -1) ||
                         a.coll(18*cos(angle)+250, 18*sin(angle)+250, 1, -1)) {
+                    history.add(score);
+                    System.out.println("on death score: " +history);
+
+                    score = 0;
                     ships--;
                     pause=3*60;
                 }
@@ -123,18 +154,13 @@ public class MainApp extends PApplet{
                 }
             }
             if (ships == 0) {
-                // Clear screen, black
+                // GAME OVER , Clear screen, black
+//                System.out.println("game over: "+history);
+//                System.out.println("history: "+history);
                 textAlign(CENTER);
                 text("Game Over", width/2, height/2);
                 text("Press any key to restart", width/2, 2*height/3);
-                // 1 new asteroid every 0.5 seconds (60 fps * 0.5 sec)
-                // To make something happen while waiting
-                if (asteroid_count--==0) {
-                    asteroids.add(new asteroid(random(0, TWO_PI), random(1, 2), random(1, 4), random(-1, 1),
-                            random(-150, 150), random(-150, 150), ast_id++));
-                    // Increase rate just a little
-                    asteroid_count = 30;
-                }
+//        text("Hit rate: " + int(100*score/float(numShots)) + "%", 15, 45);
                 if (keyPressed == true) {
                     score = 0;
                     numShots = 0;
@@ -162,15 +188,11 @@ public class MainApp extends PApplet{
         textAlign(LEFT);
         text("Score   : " + score, 15, 15);
         text("Ships   : " + ships, 15, 30);
-//        text("Hit rate: " + int(100*score/float(numShots)) + "%", 15, 45);
-
-//        ball.bounceBall();
-//        star.star(100, 100, 15, 35, 3);
-
     }
 
     // When left mouse button is pressed, create a new shot
     public void mousePressed() {
+//        Shoot on click
         if (pause==0) {
             // Only add shots when in action
             if (mouseButton == LEFT) {
@@ -183,9 +205,17 @@ public class MainApp extends PApplet{
                         random(-80, 80), random(-80, 80), ast_id++));
             }
         }
+
+//        Main Menu. stage set based on what is being hovered over.
+        if (Button.rect2Over== true){
+            System.out.println("history button");
+        } else if (Button.rectOver== true){
+            stage = GAME;
+//            game();
+        }
     }
 
-    // Class definition for the shot
+    // Projectiles
     class shot {
         // A shot has x,y, and speed in x,y. All float for smooth movement
         float angle, speed;
@@ -231,9 +261,7 @@ public class MainApp extends PApplet{
         }
     }
 
-
-
-    // Class. Asteroid constructor.
+    // Class. Asteroid constructor, behavior, and collision + position check.
     class asteroid {
         // An asteroid angle, speed, size, rotation
         float angle, speed, size, rotSpeed;
@@ -317,7 +345,7 @@ public class MainApp extends PApplet{
             }
         }
 
-        //
+        // Collision boolean
         boolean coll(float _x, float _y, float _size, int _id) {
             float dist;
 
@@ -338,7 +366,6 @@ public class MainApp extends PApplet{
             }
         }
     }
-
 
 }
 
