@@ -17,8 +17,19 @@ public class HistoryStage{
     public ArrayList<Integer> highScores = new ArrayList<>();
 
      public void draw() {
-        p.textAlign(p.CENTER);
-        p.text("Recent Scores: "+scoreHistory, p.width/2, p.height/2);
-        p.text("High Scores: "+highScores, p.width/2, 2*p.height/3);
+//         font settings
+         p.fill( 255);
+         p.textSize(20);
+         p.textAlign(p.CENTER);
+//        iterate the scores, position them appropriately
+         p.text("Recent Scores: ", p.width/3-(30), p.height/3-(20));
+         for (int i = 0; i < scoreHistory.size(); i++ ) {
+             p.text(scoreHistory.get(i), p.width/3-(30), p.height/3+(i*25));
+         }
+         p.text("High Scores: ", p.width/3*(2), p.height/3-(20));
+         for (int i = 0; i < highScores.size(); i++ ) {
+             p.text(highScores.get(i), p.width/3*(2), p.height/3+(i*25));
+         }
+//        p.text("High Scores: "+highScores, p.width/2, 2*p.height/3);
     }
 }

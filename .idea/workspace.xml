@@ -3,17 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="61a539f2-0ea6-47ae-961a-7abd130df7e6" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change beforePath="$PROJECT_DIR$/out/production/L2_HW_MakeGamesWithProcessing/Game$asteroid.class" afterPath="$PROJECT_DIR$/out/production/L2_HW_MakeGamesWithProcessing/Game$asteroid.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/L2_HW_MakeGamesWithProcessing/Game$shot.class" afterPath="$PROJECT_DIR$/out/production/L2_HW_MakeGamesWithProcessing/Game$shot.class" />
       <change beforePath="$PROJECT_DIR$/out/production/L2_HW_MakeGamesWithProcessing/Game.class" afterPath="$PROJECT_DIR$/out/production/L2_HW_MakeGamesWithProcessing/Game.class" />
       <change beforePath="$PROJECT_DIR$/out/production/L2_HW_MakeGamesWithProcessing/HistoryStage.class" afterPath="$PROJECT_DIR$/out/production/L2_HW_MakeGamesWithProcessing/HistoryStage.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/L2_HW_MakeGamesWithProcessing/MainApp.class" afterPath="$PROJECT_DIR$/out/production/L2_HW_MakeGamesWithProcessing/MainApp.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/L2_HW_MakeGamesWithProcessing/Menu.class" afterPath="$PROJECT_DIR$/out/production/L2_HW_MakeGamesWithProcessing/Menu.class" />
       <change beforePath="$PROJECT_DIR$/src/Game.java" afterPath="$PROJECT_DIR$/src/Game.java" />
       <change beforePath="$PROJECT_DIR$/src/HistoryStage.java" afterPath="$PROJECT_DIR$/src/HistoryStage.java" />
-      <change beforePath="$PROJECT_DIR$/src/MainApp.java" afterPath="$PROJECT_DIR$/src/MainApp.java" />
-      <change beforePath="$PROJECT_DIR$/src/Menu.java" afterPath="$PROJECT_DIR$/src/Menu.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -49,11 +42,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Menu.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="Menu.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Menu.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="493">
-                  <caret line="52" column="27" lean-forward="false" selection-start-line="52" selection-start-column="27" selection-end-line="52" selection-end-column="27" />
+                  <caret line="52" column="18" lean-forward="true" selection-start-line="52" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="method#update#0;class#Menu#0" expanded="false" />
@@ -63,11 +56,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="HistoryStage.java" pinned="false" current-in-tab="false">
+          <file leaf-file-name="HistoryStage.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/HistoryStage.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="165">
-                  <caret line="5" column="25" lean-forward="false" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
+                <state relative-caret-position="693">
+                  <caret line="23" column="57" lean-forward="false" selection-start-line="23" selection-start-column="57" selection-end-line="23" selection-end-column="57" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -79,21 +72,21 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
-          <file leaf-file-name="MainApp.java" pinned="false" current-in-tab="false">
+          <file leaf-file-name="MainApp.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/MainApp.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="0">
+                <state relative-caret-position="-1553">
                   <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Game.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="Game.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Game.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="872">
-                  <caret line="162" column="30" lean-forward="false" selection-start-line="162" selection-start-column="30" selection-end-line="162" selection-end-column="30" />
+                <state relative-caret-position="856">
+                  <caret line="158" column="0" lean-forward="false" selection-start-line="158" selection-start-column="0" selection-end-line="158" selection-end-column="0" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="method#gameMousePressed#0;class#Game#0" expanded="false" />
@@ -102,8 +95,8 @@
                     <element signature="method#asteroid#0;class#asteroid#0;class#Game#0" expanded="false" />
                     <element signature="method#update#0;class#asteroid#0;class#Game#0" expanded="false" />
                     <element signature="method#coll#0;class#asteroid#0;class#Game#0" expanded="false" />
-                    <element signature="e#12103#12104#0" expanded="true" />
-                    <element signature="e#12138#12139#0" expanded="true" />
+                    <element signature="e#12111#12112#0" expanded="true" />
+                    <element signature="e#12146#12147#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -201,11 +194,11 @@
         <option value="$PROJECT_DIR$/src/data/scores.csv" />
         <option value="$PROJECT_DIR$/data/scores.csv" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/src/HistoryStage.java" />
         <option value="$PROJECT_DIR$/src/SaveManager.java" />
-        <option value="$PROJECT_DIR$/src/Game.java" />
         <option value="$PROJECT_DIR$/src/MainApp.java" />
         <option value="$PROJECT_DIR$/src/Menu.java" />
+        <option value="$PROJECT_DIR$/src/Game.java" />
+        <option value="$PROJECT_DIR$/src/HistoryStage.java" />
       </list>
     </option>
   </component>
@@ -484,8 +477,8 @@
             <element signature="method#asteroid#0;class#asteroid#0;class#Game#0" expanded="false" />
             <element signature="method#update#0;class#asteroid#0;class#Game#0" expanded="false" />
             <element signature="method#coll#0;class#asteroid#0;class#Game#0" expanded="false" />
-            <element signature="e#12103#12104#0" expanded="true" />
-            <element signature="e#12138#12139#0" expanded="true" />
+            <element signature="e#12111#12112#0" expanded="true" />
+            <element signature="e#12146#12147#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -768,8 +761,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="872">
-          <caret line="162" column="30" lean-forward="false" selection-start-line="162" selection-start-column="30" selection-end-line="162" selection-end-column="30" />
+        <state relative-caret-position="856">
+          <caret line="158" column="0" lean-forward="false" selection-start-line="158" selection-start-column="0" selection-end-line="158" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#gameMousePressed#0;class#Game#0" expanded="false" />
@@ -778,18 +771,8 @@
             <element signature="method#asteroid#0;class#asteroid#0;class#Game#0" expanded="false" />
             <element signature="method#update#0;class#asteroid#0;class#Game#0" expanded="false" />
             <element signature="method#coll#0;class#asteroid#0;class#Game#0" expanded="false" />
-            <element signature="e#12103#12104#0" expanded="true" />
-            <element signature="e#12138#12139#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/HistoryStage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="5" column="25" lean-forward="false" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#12111#12112#0" expanded="true" />
+            <element signature="e#12146#12147#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -814,11 +797,21 @@
     <entry file="file://$PROJECT_DIR$/src/Menu.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
-          <caret line="52" column="27" lean-forward="false" selection-start-line="52" selection-start-column="27" selection-end-line="52" selection-end-column="27" />
+          <caret line="52" column="18" lean-forward="true" selection-start-line="52" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#update#0;class#Menu#0" expanded="false" />
             <element signature="method#overRect#0;class#Menu#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/HistoryStage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="693">
+          <caret line="23" column="57" lean-forward="false" selection-start-line="23" selection-start-column="57" selection-end-line="23" selection-end-column="57" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -159,8 +159,8 @@ public class Game{
             scoreHistory.remove(0);
         }
         scoreHistory.add(roundScore);
-        updateTrigger = true;
-        updateTrigger = false;
+//        updateTrigger = true;
+//        updateTrigger = false;
     }
 
     // Check each round's score if in top 10. push and remove anything past 10
@@ -170,8 +170,8 @@ public class Game{
         if(highScores.size() > 10) {
             highScores.remove(10);
         }
-        updateTrigger = true;
-        updateTrigger = false;
+//        updateTrigger = true;
+//        updateTrigger = false;
     }
 
     // When left mouse button is pressed, create a new shot
