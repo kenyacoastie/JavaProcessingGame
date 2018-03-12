@@ -56,8 +56,7 @@ I just learned how to code in Java 4 days ago. SO LET'S MAKE A GAME!
      
     Still to do: fix UI bugs during pause or on player death. Maintenance & refactoring. GameOver score details.
     
-[MainMenu]https://i.imgur.com/LpGUoGG.png)
-# ![GamePlay]https://i.imgur.com/bbQAhg9.png)
-# ![Pause]https://i.imgur.com/AUwq3jM.png)
-# ![Scores]https://i.imgur.com/pvriTHV.png)
-[Imgur](https://i.imgur.com/pvriTHV.png)
+![MainMenu]https://i.imgur.com/LpGUoGG.png)
+![GamePlay]https://i.imgur.com/bbQAhg9.png)
+![Pause]https://i.imgur.com/AUwq3jM.png)
+![Scores]https://i.imgur.com/pvriTHV.png)
