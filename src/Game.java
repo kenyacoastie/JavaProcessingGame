@@ -20,15 +20,11 @@ public class Game{
     private float ast_size = 10;
     private int ast_id = 1;
     public int score = 0;
-    float hitRate = 0;
     public int numShots = 0;
     private int ships = 3;
     private int pause = 0;
-    boolean updateTrigger = false;
 
     //    private int[] scoreHistory = new int[0];
-    int[] recentScores = {0, 0, 0};
-
     ArrayList<Integer> scoreHistory = new ArrayList<>();
     ArrayList<Integer> highScores = new ArrayList<>();
 
@@ -89,11 +85,12 @@ public class Game{
             p.translate(250, 250);
             // Rotate screen "angle"
             p.rotate(angle);
-            p.fill(255);
             // Draw a triangle (the ship)
+            p.fill(255,255,200,0);
             p.triangle(20, 0, -20, -10, -20, 10);
             // Bring back normal perspective
             p.popMatrix();
+            p.fill(255);
         } else {
             // Pause is larger than 0
             // Clear screen, black
@@ -271,7 +268,7 @@ public class Game{
             // Generate the shape of the asteroid - Some variations for all
             s = p.createShape();
             s.beginShape();
-            s.fill(255, 255, 100);
+            s.fill(200);
             s.noStroke();
             for (i=0; i<TWO_PI; i=i+p.PI/(p.random(4, 11))) {
                 s.vertex(p.random(ast_size*1, ast_size*1)*p.cos(i), p.random(ast_size*1, ast_size*1)*p.sin(i));
@@ -348,6 +345,4 @@ public class Game{
     public ArrayList<Integer> getScoreHistory(){
         return scoreHistory;
     }
-
-
 }
